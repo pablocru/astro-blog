@@ -1,0 +1,18 @@
+---
+const routes = [
+  {
+    path: '/',
+    name: 'Home'
+  },
+  {
+    path: '/blog',
+    name: 'Blog'
+  }
+];
+---
+
+<nav>
+  <ul>
+    {routes.map(({path, name}) => <li><a href={path}>{name}</a></li>)}
+  </ul>
+</nav>
