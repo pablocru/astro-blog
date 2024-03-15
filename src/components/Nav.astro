@@ -3,18 +3,24 @@ const baseUrl = import.meta.env.BASE_URL;
 
 const routes = [
   {
-    path: '',
-    name: 'Home'
+    path: "",
+    name: "Home",
   },
   {
-    path: 'blog',
-    name: 'Blog'
-  }
+    path: "blog",
+    name: "Blog",
+  },
 ];
 ---
 
 <nav>
   <ul>
-    {routes.map(({path, name}) => <li><a href={baseUrl + path}>{name}</a></li>)}
+    {
+      routes.map(({ path, name }) => (
+        <li>
+          <a href={baseUrl + path}>{name}</a>
+        </li>
+      ))
+    }
   </ul>
 </nav>
