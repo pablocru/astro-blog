@@ -24,3 +24,20 @@ const routes = [
     }
   </ul>
 </nav>
+
+<style>
+  @supports (display: flex) {
+    ul {
+      /* Remove default list styles */
+      list-style: none;
+      margin: 0;
+
+      /* Leave some space depending on the font size */
+      padding: 1em;
+
+      /* Display children in flexbox */
+      display: flex;
+      gap: 1em;
+    }
+  }
+</style>
