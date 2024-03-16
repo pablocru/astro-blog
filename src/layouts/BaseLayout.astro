@@ -1,19 +1,17 @@
 ---
-import Nav from '@/components/Nav.astro';
-import Footer from '@/components/Footer.astro';
-import '@/styles/main.css';
+import Nav from "@/components/Nav.astro";
+import Footer from "@/components/Footer.astro";
+import "@/styles/main.css";
 
 interface Props {
   title?: string;
   description?: string;
-};
+}
 
-const {
-  title = 'Astro Blog',
-  description = 'Blog powered by Astro'
-} = Astro.props;
+const { title = "Astro Blog", description = "Blog powered by Astro" } =
+  Astro.props;
 
-const faviconPath = import.meta.env.BASE_URL + 'favicon.svg';
+const faviconPath = import.meta.env.BASE_URL + "favicon.svg";
 ---
 
 <!doctype html>
@@ -27,8 +25,8 @@ const faviconPath = import.meta.env.BASE_URL + 'favicon.svg';
     <meta name="generator" content={Astro.generator} />
   </head>
   <body>
-    <Nav/>
+    <Nav />
     <slot />
-    <Footer/>
+    <Footer />
   </body>
 </html>
