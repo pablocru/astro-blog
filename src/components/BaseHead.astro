@@ -1,6 +1,8 @@
 ---
 // Inspired on: https://github.com/withastro/astro/blob/main/examples/blog/src/components/BaseHead.astro
 
+import { getFontsPath } from "@/utils/get-fonts-path";
+
 interface Props {
   title?: string;
   description?: string;
@@ -11,20 +13,7 @@ const { title = "Astro Blog", description = "Blog powered by Astro" } =
 
 const faviconPath = import.meta.env.BASE_URL + "favicon.svg";
 
-async function generateFontPreloadTags() {
-  const fontFiles = await Astro.glob("../../public/fonts/**/*.woff2");
-  if (!fontFiles) return;
-
-  const fonts = [];
-  for (const fontFile of fontFiles) {
-    const fileName = fontFile.default;
-
-    // .slice(7) removes "/public" from the given path
-    if (typeof fileName === "string") fonts.push(fileName.slice(7));
-  }
-  return fonts;
-}
-const fonts = await generateFontPreloadTags();
+const fonts = await getFontsPath();
 ---
 
 {/* Global Metadata */}
@@ -45,6 +34,12 @@ const fonts = await generateFontPreloadTags();
   /* Preload Fonts */
   fonts?.length &&
     fonts.map((font) => (
-      <link rel="preload" href={font} as="font" type="font/woff2" crossorigin />
+      <link
+        rel="preload"
+        href={import.meta.env.BASE_URL + font}
+        as="font"
+        type="font/woff2"
+        crossorigin
+      />
     ))
 }
