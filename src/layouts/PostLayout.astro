@@ -1,6 +1,7 @@
 ---
 import { Picture } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
 
 interface Props {
   frontmatter: {
@@ -25,8 +26,6 @@ const {
   },
 } = Astro.props;
 
-const pubDateString = pubDate.toString().slice(0, 10);
-
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/images/*.{jpeg,jpg,png,gif}"
 );
@@ -43,6 +42,6 @@ if (!image) throw new Error(`Image ${url} doesn't exists`);
     loading="eager"
   />
   <slot />
-  <p>Published on: <time datetime={pubDateString}>{pubDateString}</time></p>
+  <p>Published on <FormattedDate date={pubDate}/></p>
   <p>By: {author}</p>
 </BaseLayout>

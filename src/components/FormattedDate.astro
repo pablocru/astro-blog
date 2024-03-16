@@ -1,0 +1,19 @@
+---
+// Source: https://github.com/withastro/astro/tree/main/examples/blog
+
+interface Props {
+  date: Date;
+}
+
+const { date } = Astro.props;
+---
+
+<time datetime={date.toISOString()}>
+  {
+    date.toLocaleDateString("en-us", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
+</time>
