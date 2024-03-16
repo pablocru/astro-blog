@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    pubDate: Date;
+    author: string;
+    image: {
+      url: string;
+      alt: string;
+    };
+  };
+}
+
+const {
+  frontmatter: {
+    title,
+    description,
+    pubDate,
+    author,
+    image: { alt, url },
+  },
+} = Astro.props;
+
+const pubDateString = pubDate.toString().slice(0, 10);
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/images/*.{jpeg,jpg,png,gif}"
+);
+const image = images[url];
+if (!image) throw new Error(`Image ${url} doesn't exists`);
+---
+
+<BaseLayout title={title} description={description}>
+  <Image src={images[url]()} alt={alt} width={500} loading="eager" />
+  <slot />
+  <p>Published on: <time datetime={pubDateString}>{pubDateString}</time></p>
+  <p>By: {author}</p>
+</BaseLayout>
