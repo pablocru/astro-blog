@@ -1,5 +1,5 @@
 ---
-const baseUrl = import.meta.env.BASE_URL;
+import PagesLink from "./PagesLink.astro";
 
 const routes = [
   {
@@ -18,7 +18,7 @@ const routes = [
     {
       routes.map(({ path, name }) => (
         <li>
-          <a href={baseUrl + path}>{name}</a>
+          <PagesLink route={path} name={name} />
         </li>
       ))
     }
