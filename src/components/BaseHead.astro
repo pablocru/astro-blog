@@ -1,6 +1,8 @@
 ---
 // Inspired on: https://github.com/withastro/astro/blob/main/examples/blog/src/components/BaseHead.astro
 
+import { ViewTransitions } from "astro:transitions";
+
 interface Props {
   title?: string;
   description?: string;
@@ -25,3 +27,6 @@ const faviconPath = import.meta.env.BASE_URL + "favicon.svg";
 
 {/* Canonical URL */}
 <link rel="canonical" href={Astro.url} />
+
+{/* Enable SPA like pages transition */}
+<ViewTransitions/>
