@@ -1,8 +1,8 @@
 ---
 # source https://docs.astro.build/en/tutorial/2-pages/2/#write-markdown-content
 
-layout: '@/layouts/PostLayout.astro'
 title: 'My First Blog Post'
+postTile: 'My First Blog Post'
 pubDate: 2022-07-01
 description: 'This is the first post of my new Astro blog.'
 author: 'Pablo Cru'
@@ -11,8 +11,6 @@ image:
   alt: 'Tiles of the game Scrabble forming the word blog'
 tags: ["astro", "blogging", "learning in public"]
 ---
-
-# My First Blog Post
 
 Welcome to my _new blog_ about learning Astro! Here, I will share my learning
 journey as I build a new website.
