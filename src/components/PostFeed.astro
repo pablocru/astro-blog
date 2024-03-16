@@ -1,0 +1,18 @@
+---
+import PagesLink from "./PagesLink.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("posts");
+---
+
+{
+  allPosts?.length && (
+    <ul>
+      {allPosts.map((post) => (
+        <li>
+          <PagesLink route={post.slug} name={post.data.title} />
+        </li>
+      ))}
+    </ul>
+  )
+}
