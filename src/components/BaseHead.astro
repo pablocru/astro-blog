@@ -10,6 +10,21 @@ const { title = "Astro Blog", description = "Blog powered by Astro" } =
   Astro.props;
 
 const faviconPath = import.meta.env.BASE_URL + "favicon.svg";
+
+async function generateFontPreloadTags() {
+  const fontFiles = await Astro.glob("../../public/fonts/**/*.woff2");
+  if (!fontFiles) return;
+
+  const fonts = [];
+  for (const fontFile of fontFiles) {
+    const fileName = fontFile.default;
+
+    // .slice(7) removes "/public" from the given path
+    if (typeof fileName === "string") fonts.push(fileName.slice(7));
+  }
+  return fonts;
+}
+const fonts = await generateFontPreloadTags();
 ---
 
 {/* Global Metadata */}
@@ -25,3 +40,11 @@ const faviconPath = import.meta.env.BASE_URL + "favicon.svg";
 
 {/* Canonical URL */}
 <link rel="canonical" href={Astro.url} />
+
+{
+  /* Preload Fonts */
+  fonts?.length &&
+    fonts.map((font) => (
+      <link rel="preload" href={font} as="font" type="font/woff2" crossorigin />
+    ))
+}
