@@ -18,7 +18,7 @@ const routes = [
     {
       routes.map(({ path, name }) => (
         <li>
-          <PagesLink route={path} name={name} />
+          <PagesLink href={path}>{name}</PagesLink>
         </li>
       ))
     }

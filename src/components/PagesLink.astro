@@ -1,16 +1,20 @@
 ---
-interface Props {
-  route: string;
-  name: string;
-}
+// Inspired on: https://github.com/withastro/astro/blob/main/examples/blog/src/components/HeaderLink.astro
 
-const { name, route } = Astro.props;
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"a">;
+
+const { href, class: className, ...props } = Astro.props;
+const { pathname } = Astro.url;
 
 /*
 As this is deployed in GitHub Pages, I need the base url to avoid navigation
 errors
 */
-const baseUrl = import.meta.env.BASE_URL;
+const url = import.meta.env.BASE_URL + href;
 ---
 
-<a href={baseUrl + route}>{name}</a>
+<a href={pathname === url ? "#" : url} class:list={[className]} {...props}>
+  <slot />
+</a>

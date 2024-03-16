@@ -10,7 +10,7 @@ const allPosts = await getCollection("posts");
     <ul>
       {allPosts.map((post) => (
         <li>
-          <PagesLink route={post.slug} name={post.data.title} />
+          <PagesLink href={post.slug}>{post.data.title}</PagesLink>
         </li>
       ))}
     </ul>
