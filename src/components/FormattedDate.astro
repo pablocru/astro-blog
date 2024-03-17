@@ -1,5 +1,8 @@
 ---
-// Source: https://github.com/withastro/astro/tree/main/examples/blog
+/** Source:
+ * - https://github.com/withastro/astro/tree/main/examples/blog
+ * - https://github.com/coding-in-public/astro-content-collections-overview/blob/main/src/components/PostCard.astro
+ */
 
 interface Props {
   date: Date;
@@ -9,5 +12,11 @@ const { date } = Astro.props;
 ---
 
 <time datetime={date.toISOString()}>
-  {date.toLocaleDateString("en-us", { dateStyle: "long" })}
+  {
+    /*
+      Display the date in a long format and Universal Time Coordinated (UTC),
+      ensuring consistency and neutrality across different time zones.
+    */
+    date.toLocaleDateString("en-us", { dateStyle: "long", timeZone: "UTC" })
+  }
 </time>
