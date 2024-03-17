@@ -8,9 +8,10 @@ import type { BaseHeadProps } from "@/types";
 type Props = BaseHeadProps;
 
 const {
-  title = "Astro Blog",
-  description = "Blog powered by Astro",
+  author = "Pablo Cru Delhom",
   coverName = "to-blog-or-not-to-blog-by-suzy-hazelwood.avif",
+  description = "Blog powered by Astro",
+  title = "Astro Blog",
 } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL;
@@ -29,6 +30,7 @@ const fonts = await getFontsPath();
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="author" content={author} />
 
 {/* Canonical URL */}
 <link rel="canonical" href={Astro.url} />
