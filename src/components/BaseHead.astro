@@ -2,16 +2,19 @@
 // Inspired on: https://github.com/withastro/astro/blob/main/examples/blog/src/components/BaseHead.astro
 
 import { getFontsPath } from "@/utils/get-fonts-path";
+import { importImage } from "@/utils/import-image";
+import type { BaseHeadProps } from "@/types";
 
-interface Props {
-  title?: string;
-  description?: string;
-}
+type Props = BaseHeadProps;
 
-const { title = "Astro Blog", description = "Blog powered by Astro" } =
-  Astro.props;
+const {
+  title = "Astro Blog",
+  description = "Blog powered by Astro",
+  coverName = "to-blog-or-not-to-blog-by-suzy-hazelwood.avif",
+} = Astro.props;
 
-const faviconPath = import.meta.env.BASE_URL + "favicon.svg";
+const baseUrl = import.meta.env.BASE_URL;
+const faviconPath = baseUrl + "favicon.svg";
 
 const fonts = await getFontsPath();
 ---
@@ -39,7 +42,29 @@ const fonts = await getFontsPath();
         rel="preload"
         as="font"
         type="font/woff2"
-        href={import.meta.env.BASE_URL + font}
+        href={baseUrl + font}
       />
     ))
+}
+
+{/* Open Graph / Facebook */}
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+{
+  importImage(coverName).then((image) => (
+    <meta property="og:image" content={image.default.src} />
+  ))
+}
+
+{/* Twitter */}
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+{
+  importImage(coverName).then((image) => (
+    <meta property="twitter:image" content={image.default.src} />
+  ))
 }
