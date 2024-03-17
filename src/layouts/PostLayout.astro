@@ -3,22 +3,12 @@ import { Picture } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 import { importImage } from "@/utils/import-image";
+import type { CollectionEntry } from "astro:content";
 
-interface Props {
-  frontmatter: {
-    title: string;
-    description: string;
-    pubDate: Date;
-    author: string;
-    cover: {
-      name: string;
-      alt: string;
-    };
-  };
-}
+type Props = CollectionEntry<"posts">;
 
 const {
-  frontmatter: {
+  data: {
     title,
     description,
     pubDate,
@@ -28,7 +18,12 @@ const {
 } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  description={description}
+  author={author}
+  coverName={name}
+>
   <Picture
     src={importImage(name)}
     alt={alt}
@@ -37,6 +32,6 @@ const {
     loading="eager"
   />
   <slot />
-  <p>Published on <FormattedDate date={pubDate}/></p>
+  <p>Published on <FormattedDate date={pubDate} /></p>
   <p>By: {author}</p>
 </BaseLayout>
