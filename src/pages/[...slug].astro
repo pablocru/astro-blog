@@ -2,10 +2,10 @@
 // Source: https://docs.astro.build/en/tutorials/add-content-collections/#generate-pages-from-a-collection
 
 import { getCollection } from "astro:content";
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import { Picture } from "astro:assets";
-import FormattedDate from "@/components/FormattedDate.astro";
 import { importImage } from "@/utils/import-image";
+import { Picture } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("posts");
