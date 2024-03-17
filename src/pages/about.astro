@@ -15,7 +15,6 @@ const happy = true;
 const finished = false;
 const goal = 3;
 
-const headingfontSize = "4rem";
 const skillsFontWeight = "bold";
 ---
 
@@ -44,10 +43,7 @@ const skillsFontWeight = "bold";
     )
   }
 
-  <style define:vars={{ headingfontSize, skillsFontWeight }}>
-    h1 {
-      font-size: var(--headingfontSize);
-    }
+  <style define:vars={{ skillsFontWeight }}>
     .skill {
       font-weight: var(--skillsFontWeight);
     }
