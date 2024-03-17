@@ -1,6 +1,6 @@
 export type BaseHeadProps = {
-  title: string;
-  description: string;
-  author: string;
-  coverName: string;
+  title?: string;
+  description?: string;
+  author?: string;
+  coverName?: string;
 }
