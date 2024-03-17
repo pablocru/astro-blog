@@ -6,8 +6,8 @@ postTile: 'My First Blog Post'
 pubDate: 2022-07-01
 description: 'This is the first post of my new Astro blog.'
 author: 'Pablo Cru'
-image:
-  url: '/src/images/tiles-of-the-game-scrabble-forming-the-word-blog.jpg'
+cover:
+  name: 'tiles-of-the-game-scrabble-forming-the-word-blog.jpg'
   alt: 'Tiles of the game Scrabble forming the word blog'
 tags: ["astro", "blogging", "learning in public"]
 ---

@@ -9,8 +9,8 @@ interface Props {
     description: string;
     pubDate: Date;
     author: string;
-    image: {
-      url: string;
+    cover: {
+      name: string;
       alt: string;
     };
   };
@@ -22,20 +22,20 @@ const {
     description,
     pubDate,
     author,
-    image: { alt, url },
+    cover: { alt, name },
   },
 } = Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/images/*.{jpeg,jpg,png,gif}"
 );
-const image = images[url];
-if (!image) throw new Error(`Image ${url} doesn't exists`);
+const image = images["/src/images/" + name];
+if (!image) throw new Error(`Image ${name} doesn't exists`);
 ---
 
 <BaseLayout title={title} description={description}>
   <Picture
-    src={images[url]()}
+    src={image()}
     alt={alt}
     formats={["avif", "webp"]}
     width={500}
