@@ -35,11 +35,11 @@ const fonts = await getFontsPath();
   fonts?.length &&
     fonts.map((font) => (
       <link
+        crossorigin
         rel="preload"
-        href={import.meta.env.BASE_URL + font}
         as="font"
         type="font/woff2"
-        crossorigin
+        href={import.meta.env.BASE_URL + font}
       />
     ))
 }
