@@ -2,6 +2,7 @@
 import { Picture } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
+import { importImage } from "@/utils/import-image";
 
 interface Props {
   frontmatter: {
@@ -25,17 +26,11 @@ const {
     cover: { alt, name },
   },
 } = Astro.props;
-
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/images/*.{jpeg,jpg,png,gif}"
-);
-const image = images["/src/images/" + name];
-if (!image) throw new Error(`Image ${name} doesn't exists`);
 ---
 
 <BaseLayout title={title} description={description}>
   <Picture
-    src={image()}
+    src={importImage(name)}
     alt={alt}
     formats={["avif", "webp"]}
     width={500}
