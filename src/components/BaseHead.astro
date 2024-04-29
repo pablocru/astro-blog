@@ -1,7 +1,6 @@
 ---
 // Inspired on: https://github.com/withastro/astro/blob/main/examples/blog/src/components/BaseHead.astro
 
-import { getFontsPath } from "@/utils/get-fonts-path";
 import { importImage } from "@/utils/import-image";
 import type { BaseHeadProps } from "@/types";
 
@@ -15,8 +14,6 @@ const {
 } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL;
-
-const fonts = await getFontsPath();
 ---
 
 {/* Global Metadata */}
@@ -33,20 +30,6 @@ const fonts = await getFontsPath();
 
 {/* Canonical URL */}
 <link rel="canonical" href={Astro.url} />
-
-{
-  /* Preload Fonts */
-  fonts?.length &&
-    fonts.map((font) => (
-      <link
-        crossorigin
-        rel="preload"
-        as="font"
-        type="font/woff2"
-        href={baseUrl + "/" + font}
-      />
-    ))
-}
 
 {/* Open Graph / Facebook */}
 <meta property="og:type" content="website" />

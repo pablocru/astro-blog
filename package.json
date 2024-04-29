@@ -12,6 +12,9 @@
   "dependencies": {
     "@astrojs/check": "^0.5.9",
     "@astrojs/rss": "^4.0.5",
+    "@fontsource/ibm-plex-mono": "^5.0.13",
+    "@fontsource/ibm-plex-sans": "^5.0.20",
+    "@fontsource/ibm-plex-serif": "^5.0.13",
     "astro": "^4.5.3",
     "sharp": "^0.33.2",
     "typescript": "^5.4.2"
