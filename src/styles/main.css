@@ -7,7 +7,7 @@
 /* Mono Bold */
 @font-face {
   font-family: 'IBM Plex Mono';
-  src: url('/fonts/mono/ibm-plex-mono-bold.woff2') format('woff2');
+  src: url('/astro-blog/fonts/mono/ibm-plex-mono-bold.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -16,7 +16,7 @@
 /* Mono Bold Italic */
 @font-face {
   font-family: 'IBM Plex Mono';
-  src: url('/fonts/mono/ibm-plex-mono-bold-italic.woff2') format('woff2');
+  src: url('/astro-blog/fonts/mono/ibm-plex-mono-bold-italic.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -25,7 +25,7 @@
 /* Mono Italic */
 @font-face {
   font-family: 'IBM Plex Mono';
-  src: url('/fonts/mono/ibm-plex-mono-italic.woff2') format('woff2');
+  src: url('/astro-blog/fonts/mono/ibm-plex-mono-italic.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -34,7 +34,7 @@
 /* Mono Regular */
 @font-face {
   font-family: 'IBM Plex Mono';
-  src: url('/fonts/mono/ibm-plex-mono-regular.woff2') format('woff2');
+  src: url('/astro-blog/fonts/mono/ibm-plex-mono-regular.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -43,7 +43,7 @@
 /* Sans Bold */
 @font-face {
   font-family: 'IBM Plex Sans';
-  src: url('/fonts/sans/ibm-plex-sans-bold.woff2') format('woff2');
+  src: url('/astro-blog/fonts/sans/ibm-plex-sans-bold.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -52,7 +52,7 @@
 /* Sans Bold Italic */
 @font-face {
   font-family: 'IBM Plex Sans';
-  src: url('/fonts/sans/ibm-plex-sans-bold-italic.woff2') format('woff2');
+  src: url('/astro-blog/fonts/sans/ibm-plex-sans-bold-italic.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -61,7 +61,7 @@
 /* Sans Italic */
 @font-face {
   font-family: 'IBM Plex Sans';
-  src: url('/fonts/sans/ibm-plex-sans-italic.woff2') format('woff2');
+  src: url('/astro-blog/fonts/sans/ibm-plex-sans-italic.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -70,7 +70,7 @@
 /* Sans Regular */
 @font-face {
   font-family: 'IBM Plex Sans';
-  src: url('/fonts/sans/ibm-plex-sans-regular.woff2') format('woff2');
+  src: url('/astro-blog/fonts/sans/ibm-plex-sans-regular.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -79,7 +79,7 @@
 /* Serif Bold */
 @font-face {
   font-family: 'IBM Plex Serif';
-  src: url('/fonts/serif/ibm-plex-serif-bold.woff2') format('woff2');
+  src: url('/astro-blog/fonts/serif/ibm-plex-serif-bold.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -88,7 +88,7 @@
 /* Serif Bold Italic */
 @font-face {
   font-family: 'IBM Plex Serif';
-  src: url('/fonts/serif/ibm-plex-serif-bold-italic.woff2') format('woff2');
+  src: url('/astro-blog/fonts/serif/ibm-plex-serif-bold-italic.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
